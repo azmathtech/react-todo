@@ -1,0 +1,13 @@
+//http://sass-lang.com/guide
+//can use sass or scss - difference in syntax
+
+// variables
+@import "base/variables";
+
+// foundation
+@import "base/foundation-settings";
+@import "foundation";
+@include foundation-everything;
+
+// Components
+@import "components/navigation";
