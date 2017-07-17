@@ -12,3 +12,16 @@ Starting a new Heroku project
 - git remote -v
 - git push heroku master
 - heroku open
+
+Remove node_modules
+- rm -rf ./node_modules/
+
+Clear git repository
+- git remote
+- rm -rf ./.git/
+
+Remove a git repository for clean install
+git remote rm origin
+
+To reinstall the npm module directory
+npm install
