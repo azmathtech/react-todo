@@ -13,19 +13,23 @@ var TodoApp = React.createClass({
       todos: [
         {
           id: uuid(),
-          text: 'Walk the dog'
+          text: 'Walk the dog',
+          completed: false
         },
         {
           id: uuid(),
-          text: 'Clean the yard'
+          text: 'Clean the yard',
+          completed: true
         },
         {
           id: uuid(),
-          text: 'Code the app'
+          text: 'Code the app',
+          completed: true
         },
         {
           id: uuid(),
-          text: 'Combine the apps'
+          text: 'Combine the apps',
+          completed: false
         }
       ]
     };
@@ -38,10 +42,23 @@ var TodoApp = React.createClass({
         ...this.state.todos, //this line addes in the original arrey elements
         {
           id: uuid(),
-          text: text
+          text: text,
+          completed: false
         }
       ]
     });
+  },
+
+  handleToggle: function (id) {
+    var updatedTodos = this.state.todos.map((todo) => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+      }
+
+      return todo;
+    });
+
+    this.setState({todos: updatedTodos});
   },
 
   handleSearch: function (showCompleted, searchText) {
@@ -60,7 +77,7 @@ var TodoApp = React.createClass({
         <div className="row">
           <div className="column small-centered medium-6 large-4">
             <TodoSearch onSearch={this.handleSearch}/>
-            <TodoList todos={todos}/>
+            <TodoList todos={todos} onToggle={this.handleToggle}/>
             <AddTodo onAddTodo={this.handleAddTodo}/>
           </div>
         </div>
