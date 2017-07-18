@@ -10,7 +10,7 @@ var Todo = React.createClass({
       <div onClick={() => {
         this.props.onToggle(id);
       }}>
-        <input type="checkbox" checked={completed}/>
+        <input type="checkbox" defaultChecked={completed}/>
         {text}
       </div>
     );
@@ -18,3 +18,6 @@ var Todo = React.createClass({
 });
 
 module.exports = Todo;
+
+
+//got error with Checked so tried defaultChecked
