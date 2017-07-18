@@ -3,6 +3,7 @@ var Navigation = require('Navigation');
 var TodoList = require('TodoList');
 var AddTodo = require('AddTodo');
 var TodoSearch = require('TodoSearch');
+var uuid = require('node-uuid');
 
 var TodoApp = React.createClass({
   getInitialState: function () {
@@ -11,19 +12,19 @@ var TodoApp = React.createClass({
       searchText: '',
       todos: [
         {
-          id: 1,
+          id: uuid(),
           text: 'Walk the dog'
         },
         {
-          id: 2,
+          id: uuid(),
           text: 'Clean the yard'
         },
         {
-          id: 3,
+          id: uuid(),
           text: 'Code the app'
         },
         {
-          id: 4,
+          id: uuid(),
           text: 'Combine the apps'
         }
       ]
@@ -31,8 +32,18 @@ var TodoApp = React.createClass({
   },
 
   handleAddTodo: function (text) {
-    alert('new todo: ' + text);
+    //alert('new todo: ' + text);
+    this.setState({
+      todos: [
+        ...this.state.todos, //this line addes in the original arrey elements
+        {
+          id: uuid(),
+          text: text
+        }
+      ]
+    });
   },
+
   handleSearch: function (showCompleted, searchText) {
     this.setState({
       showCompleted: showCompleted,
