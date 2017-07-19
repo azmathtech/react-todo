@@ -5,6 +5,8 @@ var TodoApp = require('TodoApp');
 
 
 // Load foundation
+require('style!css!foundation-sites/dist/css/foundation.min.css');
+require('style!css!foundation-sites/dist/css/foundation-float.min.css');
 $(document).foundation();
 
 //App scss - this requires an additional loader sass
@@ -17,3 +19,19 @@ ReactDOM.render(
   </Router>,
   document.getElementById('app')
 );
+
+
+
+// ReactDOM.render(
+//   <TodoApp/>,
+//   document.getElementById('app')
+// );
+
+
+// ReactDOM.render(
+//   <Router history={hashHistory}>
+//     <Route path="/" component={TodoApp}>
+//     </Route>
+//   </Router>,
+//   document.getElementById('app')
+// );
