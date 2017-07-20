@@ -1,7 +1,7 @@
 //Search Todo items
 export var setSearchText = (searchText) => {
   return {
-    type: 'SET_SEARCH-TEXT',
+    type: 'SET_SEARCH_TEXT',
     searchText
   };
 };
