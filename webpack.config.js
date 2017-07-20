@@ -32,7 +32,8 @@ module.exports = {
       Main: 'app/components/Main.jsx',
       Navigation: 'app/components/Navigation.jsx',
       applicationStyles: 'app/styles/app.scss',
-      actions: 'app/actions/actions.jsx'
+      actions: 'app/actions/actions.jsx',
+      reducers: 'app/reducers/reducers.jsx'
       //applicationStyles: 'app/styles/app.css'
     },
     extensions: ['', '.js', '.jsx']
