@@ -25,7 +25,7 @@
 }
 
 .todo-completed {
-  p, .todo-subtext {
+  p {
     color: $light-color;
     text-decoration: line-through;
   }
