@@ -52,10 +52,40 @@ export var addTodos = (todos) => {
   };
 };
 
-// toggle todo item - completed/not yet done
-export var toggleTodo = (id) => {
+// // toggle todo item - completed/not yet done
+// export var toggleTodo = (id) => {
+//   return {
+//     type: 'TOGGLE_TODO',
+//     id
+//   };
+// };
+
+export var updateTodo = (id, updates) => {
   return {
-    type: 'TOGGLE_TODO',
-    id
+    type: 'UPDATE_TODO',
+    id,
+    updates
   };
 };
+
+export var startToggleTodo = (id, completed) => {
+  return (dispatch, getState) => {
+    var todoRef = firebaseRef.child(`todos/${id}`);
+
+    var updates = {
+      completed,
+      completedAt: completed ? moment().unix() : null
+    };
+
+    return todoRef.update(updates).then(() => {
+      dispatch(updateTodo(id, updates));
+    });
+  };
+};
+
+
+
+//ES5 way to write this line of code
+//var todoRef = firebaseRef.child('todos/' + id);
+//ES6 way to write it
+//var todoRef = firebaseRef.child(`todos/${id}`);
