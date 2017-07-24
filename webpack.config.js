@@ -1,6 +1,9 @@
 var webpack = require('webpack');
 var path = require('path');
 
+//define production or development environment
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 module.exports = {
   //entry: './app/app.jsx',
   entry: [
@@ -11,10 +14,15 @@ module.exports = {
   externals: {
     jquery: 'jQuery'
   },
-  plugin: [
+  plugins: [
     new webpack.ProvidePlugin({
       '$': 'jquery',
       'jQuery': 'jquery'
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
     })
   ],
   output: {
@@ -57,10 +65,10 @@ module.exports = {
       path.resolve(__dirname, './node_modules/foundation-sites/scss')
     ]
   },
-  devtool: 'cheap-module-eval-source-map'
+  devtool: process.env.NODE_ENV === 'production' ? undefined : 'cheap-module-eval-source-map'
 };
 
-
+//devtool: 'cheap-module-eval-source-map'
 
 // set the value to "cheap-module-eval-source-map".
 //This might cause the source maps to not work as shown in the video.
