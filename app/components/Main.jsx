@@ -5,8 +5,8 @@ var Main = (props) => {
   return (
     <div>
       <Navigation/>
-      <div className="row">
-        <div className="column small-centered medium-6 large-4">
+      <div >
+        <div >
           {props.children}
         </div>
       </div>
@@ -15,3 +15,13 @@ var Main = (props) => {
 };
 
 module.exports = Main;
+
+
+{/* <div>
+  <Navigation/>
+  <div className="row">
+    <div className="column small-centered medium-6 large-4">
+      {props.children}
+    </div>
+  </div>
+</div> */}
