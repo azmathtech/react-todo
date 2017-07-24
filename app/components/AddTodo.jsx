@@ -12,7 +12,7 @@ export var AddTodo = React.createClass({
     if (todoText.length > 0) {
       this.refs.todoText.value = '';
       //this.props.onAddTodo(todoText);
-      dispatch(actions.addTodo(todoText));
+      dispatch(actions.startAddTodo(todoText));
     } else {
       //places curser back in field if the user has not placed valid entry
       this.refs.todoText.focus();
