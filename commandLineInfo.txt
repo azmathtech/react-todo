@@ -21,7 +21,13 @@ Clear git repository
 - rm -rf ./.git/
 
 Remove a git repository for clean install
-git remote rm origin
+- git remote rm origin
 
 To reinstall the npm module directory
-npm install
+- npm install
+
+Set up Heroku environment variables
+- heroku config
+- heroku config:set name=Michael  (creates a variable name and sets it to Michael)
+- heroku config:unset name
+- heroku config:set API_KEY=
