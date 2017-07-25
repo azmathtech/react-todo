@@ -1,0 +1,34 @@
+Storing a todo item
+{
+  todos: {
+    123432: {
+      text: 'something to do'
+    }
+  }
+}
+
+Storing a todo item unique to a user
+{
+  users: {
+    someuid: {
+      name: 'some name',
+      todos: {
+        123abc: {
+          text: 'something to do'
+        }
+      }
+    }
+  }
+}
+
+Rules in firebase
+{
+  "rules": {
+    "users": {
+      "$user_id": {
+        ".read": "$user_id === auth.uid",
+        ".write": "$user_id === auth.uid"
+      }
+    }
+  }
+}
