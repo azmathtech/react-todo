@@ -1,26 +1,6 @@
-var $ = require('jquery');
+import $ from 'jquery';
 
 module.exports = {
-  //get and set were used in local storage, not used for firebase storage
-  // setTodos: function(todos) {
-  //   if ($.isArray(todos)) {
-  //     localStorage.setItem('todos', JSON.stringify(todos));
-  //     return todos;
-  //   }
-  // },
-  //
-  // getTodos: function () {
-  //   var stringTodos = localStorage.getItem('todos');
-  //   var todos = [];
-  //
-  //   try {
-  //     todos = JSON.parse(stringTodos);
-  //   } catch (e) {
-  //
-  //   }
-  //
-  //   return $.isArray(todos) ? todos : [];
-  // },
 
   filterTodos: function(todos, showCompleted, searchText) {
     var filteredTodos = todos;
@@ -37,10 +17,7 @@ module.exports = {
       return searchText.length === 0 || text.indexOf(searchText) > -1;
     });
 
-    //Sort todos with non-completed first
-    //if you return -1 then a should come before b
-    //if you return 1 then b should come before a
-    //if you return 0 then no change a and b are equal
+
     filteredTodos.sort((a, b) => {
       if (!a.completed && b.completed) {
         return -1;
@@ -55,18 +32,3 @@ module.exports = {
   }
 
 };
-
-// // the two statements below do the same thing
-// // it is two methods of writing an if statement
-// return $.isArray(todos) ? todos : [];  //ternary operator
-//
-// if ($isArray(todos)) {  //traditional if statement
-//   return todos;
-// } else {
-//   return [];
-// }
-
-
-// //if statements - the below are the same
-// if (a.completed === false && b.completed === true) {}
-// if (!a.completed && b.completed) {}

@@ -1,13 +1,15 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var {Provider} = require('react-redux');
-var {hashHistory} = require('react-router');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import {hashHistory} from 'react-router';
 
 // var Main = require('Main');
 // import Login from 'Login';
 // import TodoApp from 'TodoApp';
-var actions = require('actions');
-var store = require('configureStore').configure();
+import * as actions from 'actions';
+//var store = require('configureStore').configure();
+import {configure} from 'configureStore';
+var store = configure();
 //var TodoAPI = require('TodoAPI');
 import firebase from 'app/firebase/';
 import router from 'app/router/';
@@ -22,27 +24,6 @@ firebase.auth().onAuthStateChanged((user) => {
     hashHistory.push('/');
   }
 });
-
-//import './../playground/firebase/index';
-
-//Local Storage
-// store.subscribe(() => {
-//   var state = store.getState();
-//   console.log('New state', state);
-//   TodoAPI.setTodos(state.todos);
-// });
-
-//Local storage
-// var initialTodos = TodoAPI.getTodos();
-// store.dispatch(actions.addTodos(initialTodos));
-
-//Firebase Storage
-//store.dispatch(actions.startAddTodos());
-
-// store.dispatch(actions.addTodo('Clean the yard'));
-// store.dispatch(actions.setSearchText('yard'));
-// store.dispatch(actions.toggleShowCompleted());
-
 
 // Load foundation
 require('style!css!foundation-sites/dist/css/foundation.min.css');
@@ -60,19 +41,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('app')
 );
-
-
-
-// ReactDOM.render(
-//   <TodoApp/>,
-//   document.getElementById('app')
-// );
-
-
-// ReactDOM.render(
-//   <Router history={hashHistory}>
-//     <Route path="/" component={TodoApp}>
-//     </Route>
-//   </Router>,
-//   document.getElementById('app')
-// );
