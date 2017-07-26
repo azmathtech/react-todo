@@ -1,5 +1,5 @@
-var React = require('react');
-var Navigation = require('Navigation');
+import React from 'react';
+import Navigation from 'Navigation';
 
 var Main = (props) => {
   return (
@@ -14,8 +14,8 @@ var Main = (props) => {
   );
 };
 
-module.exports = Main;
-
+//module.exports = Main;
+export default Main;
 
 {/* <div>
   <Navigation/>

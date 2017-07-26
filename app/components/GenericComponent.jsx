@@ -1,13 +1,15 @@
-var React = require('react');
+import React from 'react';
 
-var GenericComponent = React.createClass({
-  render: function () {
+class GenericComponent extends React.Component {
+
+  render() {
     return (
       <div>
 
       </div>
     );
   }
-});
+};
 
-module.exports = GenericComponent;
+export default GenericComponent;
+//module.exports = GenericComponent;

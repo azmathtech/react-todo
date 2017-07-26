@@ -1,9 +1,10 @@
-var React = require('react');
-var {Link, IndexLink} = require('react-router');
+import React from 'react';
+import {Link, IndexLink} from 'react-router';
 
-var Navigation = React.createClass({
+class Navigation extends React.Component{
+//var Navigation = React.createClass({
 
-  render: function () {
+  render() {
     return (
       <div className="top-bar">
         <div className="top-bar-left">
@@ -22,9 +23,10 @@ var Navigation = React.createClass({
     );
   }
 
-});
+};
 
-module.exports = Navigation;
+export default Navigation;
+//module.exports = Navigation;
 
 
 {/* <li>

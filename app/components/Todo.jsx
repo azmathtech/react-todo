@@ -1,12 +1,17 @@
-var React = require('react');
-var {connect} = require('react-redux');
-var moment = require('moment');
+import React from 'react';
+import {connect} from 'react-redux';
+import moment from 'moment';
 
-var actions = require('actions');
+import * as actions from 'actions';
 
-export var Todo = React.createClass({
+export class Todo extends React.Component {
+//export var Todo = React.createClass({
 
-  render: function () {
+  // constructor(props) {
+  //   super(props);
+  // }
+
+  render() {
     var {id, text, completed, createdAt, completedAt, dispatch} = this.props;
     var todoClassName = completed ? 'todo todo-completed' : 'todo';
 
@@ -24,7 +29,6 @@ export var Todo = React.createClass({
 
     return (
       <div className={todoClassName} onClick={() => {
-        //this.props.onToggle(id);
         dispatch(actions.startToggleTodo(id, !completed));
       }}>
         <div>
@@ -37,11 +41,6 @@ export var Todo = React.createClass({
       </div>
     );
   }
-});
+};
 
 export default connect()(Todo);
-
-//module.exports = connect()(Todo);
-
-
-//got error with Checked so tried defaultChecked
